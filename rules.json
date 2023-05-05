@@ -1,0 +1,36 @@
+{
+    "rules": [
+        {
+            "description": "Rule 1",
+            "condition": "all",
+            "filters": [
+                {
+                    "field_name": "From",
+                    "predicate": "contains",
+                    "value": "MuseScore"
+                },
+                {
+                    "field_name": "Subject",
+                    "predicate": "contains",
+                    "value": "For your eyes only"
+                },
+                {
+                    "field_name": "To",
+                    "predicate": "contains",
+                    "value": "brindhamanickavasakan"
+                },
+                {
+                    "field_name":"Date",
+                    "predicate":"greater than",
+                    "value":"2023-05-03"
+                }
+
+            ],
+            "action": {
+                "name": "Move Message",
+                "destination": "SPAM",
+                "apply": "UNREAD"
+            }
+        }
+    ]
+}

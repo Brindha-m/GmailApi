@@ -7,12 +7,12 @@
                 {
                     "field_name": "From",
                     "predicate": "contains",
-                    "value": "MuseScore"
+                    "value": "Myntra"
                 },
                 {
                     "field_name": "Subject",
                     "predicate": "contains",
-                    "value": "For your eyes only"
+                    "value": "A treat for fashion"
                 },
                 {
                     "field_name": "To",
@@ -22,7 +22,7 @@
                 {
                     "field_name":"Date",
                     "predicate":"greater than",
-                    "value":"2023-05-03"
+                    "value":"2023-05-04"
                 }
 
             ],

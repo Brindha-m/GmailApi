@@ -1,5 +1,4 @@
 import json
-
 from gmail_scraper import open_db_connection, authenticate_service
 
 def handle_email():
@@ -56,8 +55,7 @@ def actions(email_ids, rule):
     print(body)
     try:
         service.users().messages().batchModify(userId="me", body=body).execute()
-        
-        print('Completed Action for Rule: ', rule_name)
+        print('Action Processed for Rule: ', rule_name)
         print('')
     except Exception as e:
         print('Got Exception', e)
@@ -71,7 +69,7 @@ def query_builder(filters, condition):
         "From": "from_email",
         "To": "to_email",
         "Subject": "subject",
-        "Date": "created_on"
+        "Date": "send_on"
     }
     query = 'WHERE '
     for filter in filters:
@@ -83,7 +81,6 @@ def query_builder(filters, condition):
 
         # For Contains case
         if predicate_raw == 'contains':
-            #non-case sensitive search
             sub_query = f"{field} ILIKE '%{value}%'"
 
         # For Equal case
@@ -115,14 +112,14 @@ def query_builder(filters, condition):
             sub_query += ' or '
         
         else:
-            print('Got Unhandled logic.. please check, ', predicate_raw)
+            print('Got Unhandled logic passing', predicate_raw)
             pass
         query = query + sub_query
 
    
     query = query.removesuffix(' or ')
     query = query.removesuffix(' and ')
-    query = 'select email_id from emails '+ query
+    query = 'select email_id from mails '+ query
     return query
 
 handle_email()

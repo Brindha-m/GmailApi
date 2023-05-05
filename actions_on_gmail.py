@@ -83,6 +83,7 @@ def query_builder(filters, condition):
 
         # For Contains case
         if predicate_raw == 'contains':
+            #handling non-case sensitive texts
             sub_query = f"{field} ILIKE '%{value}%'"
 
         # For Equal case

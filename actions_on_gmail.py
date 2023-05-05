@@ -56,7 +56,8 @@ def actions(email_ids, rule):
     print(body)
     try:
         service.users().messages().batchModify(userId="me", body=body).execute()
-        print('Action Processed for Rule: ', rule_name)
+        
+        print('Completed Action for Rule: ', rule_name)
         print('')
     except Exception as e:
         print('Got Exception', e)
@@ -82,7 +83,8 @@ def query_builder(filters, condition):
 
         # For Contains case
         if predicate_raw == 'contains':
-            sub_query = f"{field} LIKE '%{value}%'"
+            #non-case sensitive search
+            sub_query = f"{field} ILIKE '%{value}%'"
 
         # For Equal case
         elif predicate_raw == 'equal':
@@ -113,7 +115,7 @@ def query_builder(filters, condition):
             sub_query += ' or '
         
         else:
-            print('Got Unhandled logic, passing', predicate_raw)
+            print('Got Unhandled logic.. please check, ', predicate_raw)
             pass
         query = query + sub_query
 

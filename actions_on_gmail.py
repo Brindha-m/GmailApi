@@ -41,6 +41,8 @@ def actions(email_ids, rule):
     removeLabelIds = []
     
     if 'UNREAD' in action['apply']:
+        addLabelIds.append('UNREAD')
+    elif 'Mark as Read' in action['apply']:
         removeLabelIds.append('UNREAD')
 
     if action_name == 'Move Message':
@@ -81,7 +83,6 @@ def query_builder(filters, condition):
 
         # For Contains case
         if predicate_raw == 'contains':
-            #handling non-case sensitive case
             sub_query = f"{field} ILIKE '%{value}%'"
 
         # For Equal case

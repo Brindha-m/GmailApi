@@ -6,7 +6,8 @@
    Firstly, run `python gmail_to_db`
    
    1. Google Mail API API authentication with OAuth2client
-    ![Picture2](https://user-images.githubusercontent.com/72887609/236460390-fa7ae6d1-184d-4ff5-af39-2dd5a4779e58.png)
+   
+   ![Picture2](https://user-images.githubusercontent.com/72887609/236460390-fa7ae6d1-184d-4ff5-af39-2dd5a4779e58.png)
     
    2. Get `credentials.json` from the google cloud platform.
    

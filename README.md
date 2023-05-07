@@ -1,6 +1,6 @@
 # GmailApi
 ## TODO
-  `pip install -r requirements`
+  `pip install -r requirements.txt`
 
 
    Firstly, run `python gmail_to_db`
